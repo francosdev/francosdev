@@ -25,13 +25,6 @@ AI-powered storytelling app for children. Personalized narratives that adapt to 
 
 `React Native` `Groq API` `Generative AI` `Emotional UX`
 
-<br>
-
-**🥂 VICA**
-Luxury cocktail brand on a drop-model strategy. Full creative direction: branding, visual identity, sensory product packaging.
-
-`Creative Direction` `Branding` `Product Strategy`
-
 ---
 
 ## Stack
@@ -69,7 +62,10 @@ Luxury cocktail brand on a drop-model strategy. Full creative direction: brandin
 
 <div align="center">
 
-📸 [@vica.experiencias](https://instagram.com/vica.experiencias) &nbsp;·&nbsp; 📍 São Paulo, Brazil
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-000000?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/carlos-franco-devs/)
+[![Instagram](https://img.shields.io/badge/Instagram-111111?style=for-the-badge&logo=instagram&logoColor=white)](https://instagram.com/carloshfranco_)
+
+📍 São Paulo, Brazil
 
 <img src="https://capsule-render.vercel.app/api?type=waving&color=0:222222,100:000000&height=100&section=footer" />
 
