@@ -1,72 +1,187 @@
 <div align="center">
 
-<img src="https://capsule-render.vercel.app/api?type=waving&color=0:000000,100:222222&height=180&section=header&text=Carlos%20Franco&fontSize=48&fontColor=ffffff&fontAlignY=38&desc=10%20years%20in%20luxury%20hospitality%20%E2%86%92%20now%20building%20it%20into%20software&descSize=13&descAlignY=58&descColor=aaaaaa" />
+# Carlos Franco
 
-[![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&size=15&pause=1000&color=FFFFFF&center=true&vCenter=true&width=620&lines=AI+Product+Design;Emotional+Products+%2B+Strong+Visual+Direction;From+hospitality+to+tech+%E2%80%94+same+obsession%2C+new+medium)](https://git.io/typing-svg)
+### Software Engineer · AI Product Builder
 
-</div>
+Building digital products that combine
+**Artificial Intelligence, Software Engineering and Real-world Problem Solving.**
 
 <br>
 
----
-
-I spent a decade designing high-end experiences inside bars, restaurants and private events — where the product was invisible and what people remembered was **how it felt**.
-
-I'm now translating that into software. Studying **Systems Analysis and Development at FIAP** while building products at the intersection of AI, emotional design, and strong visual direction.
-
-> *As execution gets automated, the gap between good and great products comes from taste — the ability to feel what's missing before users can name it. That's what 10 years in hospitality trained in me.*
-
----
-
-## Projects
-
-**🌙 Mimo**
-AI-powered storytelling app for children. Personalized narratives that adapt to emotional context, with a cinematic UX built for young audiences.
-
-`React Native` `Groq API` `Generative AI` `Emotional UX`
-
----
-
-## Stack
-
-<div align="center">
-
-![JavaScript](https://img.shields.io/badge/JavaScript-000000?style=for-the-badge&logo=javascript&logoColor=white)
-![Python](https://img.shields.io/badge/Python-111111?style=for-the-badge&logo=python&logoColor=white)
-![React Native](https://img.shields.io/badge/React_Native-000000?style=for-the-badge&logo=react&logoColor=white)
-![HTML5](https://img.shields.io/badge/HTML5-111111?style=for-the-badge&logo=html5&logoColor=white)
-![CSS3](https://img.shields.io/badge/CSS3-000000?style=for-the-badge&logo=css3&logoColor=white)
-![Figma](https://img.shields.io/badge/Figma-111111?style=for-the-badge&logo=figma&logoColor=white)
-![Groq](https://img.shields.io/badge/Groq_API-000000?style=for-the-badge&logo=groq&logoColor=white)
-
-**Learning**
-
-![Java](https://img.shields.io/badge/Java-333333?style=for-the-badge&logo=openjdk&logoColor=white)
-![SQL](https://img.shields.io/badge/SQL-333333?style=for-the-badge&logo=postgresql&logoColor=white)
-![Git](https://img.shields.io/badge/Git-333333?style=for-the-badge&logo=git&logoColor=white)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Carlos%20Franco-blue?style=flat\&logo=linkedin)](SEU_LINKEDIN)
+[![Portfolio](https://img.shields.io/badge/Portfolio-Website-black?style=flat\&logo=googlechrome)](SEU_PORTFOLIO)
+[![Email](https://img.shields.io/badge/Email-Contact-red?style=flat\&logo=gmail)](SEU_EMAIL)
 
 </div>
 
 ---
 
-## Languages
+# About Me
 
-| | Language | Level |
-|---|---|---|
-| 🇧🇷 | Portuguese | Native |
-| 🇺🇸 | English | Advanced |
-| 🇩🇪 | German | Advanced |
-| 🇪🇸 | Spanish | Intermediate |
+I'm a Software Development student focused on building products that solve real problems.
+
+My approach combines engineering, product thinking and user experience — from identifying operational challenges to designing and developing complete digital solutions.
+
+Currently exploring:
+
+* Artificial Intelligence applications
+* AI-powered products
+* Full-stack development
+* Software architecture
+* Cloud technologies
+
+---
+
+# Featured Projects
+
+## 🍸 BarOps
+
+### Modern Bar Operations Platform
+
+A platform designed to simplify hospitality operations through smarter inventory management.
+
+Built from real operational experience, BarOps helps bars reduce manual work, improve inventory accuracy and centralize operational data.
+
+**Focus:**
+
+* Inventory Management
+* Operational Automation
+* Data Organization
+* Real-world Business Solutions
+
+**Stack:**
+
+React · Vite · JavaScript · Google Apps Script · Google Sheets
+
+---
+
+## 📖 Mimo
+
+### AI Storytelling Platform
+
+An AI-powered application that creates personalized children's stories based on characters, themes and moral lessons.
+
+Designed to transform bedtime moments into unique interactive experiences.
+
+**Focus:**
+
+* Generative AI
+* User Experience
+* Personalization
+* Mobile Development
+
+**Stack:**
+
+React Native · Expo · AI APIs · JavaScript
+
+---
+
+## 🚀 AURA
+
+### Emotional Operating System for Extreme Environments
+
+A concept focused on monitoring emotional and psychological conditions in extreme environments through artificial intelligence and biometric data.
+
+Designed for future scenarios such as space habitats and isolated environments.
+
+**Focus:**
+
+* Artificial Intelligence
+* Human Factors
+* Data Analysis
+* Future Technologies
+
+---
+
+# Tech Stack
+
+<div align="center">
+
+### Languages
+
+JavaScript · Python · Java
+
+### Frontend
+
+React · React Native · HTML · CSS
+
+### Backend & Data
+
+Node.js · SQL · APIs
+
+### Tools
+
+Git · GitHub · Docker · Figma
+
+### AI
+
+LLMs · AI Agents · Generative AI
+
+</div>
+
+---
+
+# How I Build
+
+My process usually follows:
+
+```
+Problem
+
+↓
+
+Research
+
+↓
+
+Prototype
+
+↓
+
+Development
+
+↓
+
+Testing
+
+↓
+
+Iteration
+
+↓
+
+Product
+```
+
+I believe good software is not only about writing code, but understanding people, systems and the problems being solved.
+
+---
+
+# Currently Learning
+
+* Software Architecture
+* Artificial Intelligence Engineering
+* Cloud Infrastructure
+* Cybersecurity
+* Product Development
+
+---
+
+# GitHub Stats
+
+<div align="center">
+
+![GitHub Stats](https://github-readme-stats.vercel.app/api?username=francosdev\&show_icons=true\&theme=transparent)
+
+![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=francosdev\&layout=compact\&theme=transparent)
+
+</div>
 
 ---
 
 <div align="center">
 
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-000000?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/carlos-franco-devs/)
-[![Instagram](https://img.shields.io/badge/Instagram-111111?style=for-the-badge&logo=instagram&logoColor=white)](https://instagram.com/carloshfranco_)
-
-📍 São Paulo, Brazil
-
-<img src="https://capsule-render.vercel.app/api?type=waving&color=0:222222,100:000000&height=100&section=footer" />
+### Building products. Learning constantly. Solving real problems.
 
 </div>
