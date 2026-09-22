@@ -1,19 +1,17 @@
-name: Nightly service 🍸
+name: Nightly telemetry 📡
 
-# Every night the bar closes, this job:
-#   1. prints "the tab" — a receipt-style SVG with live GitHub stats (scripts/tab.mjs)
-#   2. feeds the snake that eats the contribution graph (Platane/snk), in the house gold
-#   3. serves both to the `output` branch, which the README reads from
-# It also runs on every push that touches the scripts, and on demand (Actions → Run workflow).
+# Every night: renders the telemetry panel (live GitHub stats + dot-matrix contribution map)
+# with scripts/telemetry.mjs and publishes it to the `output` branch, which the README reads from.
+# Also runs on pushes that touch the renderer, and on demand (Actions → Run workflow).
 
 on:
   schedule:
     - cron: "17 3 * * *" # 00:17 in São Paulo
   workflow_dispatch:
   push:
-    branches: [main, master]
+    branches: [main]
     paths:
-      - "scripts/tab.mjs"
+      - "scripts/telemetry.mjs"
       - "scripts/glyphs.json"
       - ".github/workflows/nightly.yml"
 
@@ -21,42 +19,38 @@ permissions:
   contents: write
 
 concurrency:
-  group: nightly-service
+  group: nightly-telemetry
   cancel-in-progress: true
 
 jobs:
-  serve:
+  telemetry:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
       - uses: actions/checkout@v7
 
-      - name: Keep yesterday's tab as a fallback
+      - name: Keep yesterday's panel as a fallback
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           mkdir -p dist
-          curl -fsSL "https://raw.githubusercontent.com/${{ github.repository }}/output/tab.svg" -o dist/tab.svg || true
+          gh api "repos/${{ github.repository }}/contents/telemetry.svg?ref=output" \
+            -H "Accept: application/vnd.github.raw" > dist/telemetry.tmp 2>/dev/null \
+            && [ -s dist/telemetry.tmp ] && mv dist/telemetry.tmp dist/telemetry.svg || rm -f dist/telemetry.tmp
 
-      - name: Print today's tab 🧾
-        run: node scripts/tab.mjs --out dist/tab.svg
+      - name: Render telemetry 📡
+        run: node scripts/telemetry.mjs --out dist/telemetry.svg
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GH_USER: ${{ github.repository_owner }}
         continue-on-error: true
 
-      - name: Feed the snake 🐍
-        uses: Platane/snk/svg-only@v3
-        with:
-          github_user_name: ${{ github.repository_owner }}
-          outputs: |
-            dist/snake-dark.svg?palette=github-dark&color_snake=#E6C27A&color_dots=#161b22,#3b2f1a,#6e5a33,#a8864a,#e6c27a
-            dist/snake-light.svg?palette=github-light&color_snake=#8C6A2F&color_dots=#ebedf0,#f1e3c2,#e0c48a,#c49a52,#8c6a2f
-
-      - name: Serve everything to the output branch
+      - name: Publish to the output branch
         uses: crazy-max/ghaction-github-pages@v5
         with:
           target_branch: output
           build_dir: dist
-          commit_message: "🍸 nightly service"
+          commit_message: "📡 nightly telemetry"
           jekyll: false
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
