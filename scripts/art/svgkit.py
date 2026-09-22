@@ -100,15 +100,18 @@ class Font:
     def __init__(self, key, file, variations=None, features=None):
         self.key = key
         path = os.path.join(FONT_DIR, file)
-        tt = TTFont(path)
+        tt = TTFont(path, lazy=True)
         if "fvar" in tt:
             from fontTools.varLib.instancer import instantiateVariableFont
+            tt = TTFont(path)
             axes = {a.axisTag: a.defaultValue for a in tt["fvar"].axes}
             axes.update(variations or {})
             tt = instantiateVariableFont(tt, axes)
-        buf = io.BytesIO()
-        tt.save(buf)
-        data = buf.getvalue()
+            buf = io.BytesIO()
+            tt.save(buf)
+            data = buf.getvalue()
+        else:
+            data = open(path, "rb").read()
         self.tt = TTFont(io.BytesIO(data))
         face = hb.Face(data)
         self.hb = hb.Font(face)
@@ -158,28 +161,32 @@ class Font:
 
 
 FONTS = {}
-
-
-def font(key):
-    return FONTS[key]
-
-
 GOOGLE_FONTS = "https://raw.githubusercontent.com/google/fonts/main/"
 FONT_FILES = {
-    "Sacramento-Regular.ttf": "ofl/sacramento/Sacramento-Regular.ttf",
-    "TiltNeon[XROT,YROT].ttf": "ofl/tiltneon/TiltNeon%5BXROT,YROT%5D.ttf",
-    "JosefinSans[wght].ttf": "ofl/josefinsans/JosefinSans%5Bwght%5D.ttf",
-    "PlayfairDisplay[wght].ttf": "ofl/playfairdisplay/PlayfairDisplay%5Bwght%5D.ttf",
-    "PlayfairDisplay-Italic[wght].ttf": "ofl/playfairdisplay/PlayfairDisplay-Italic%5Bwght%5D.ttf",
-    "Inter[opsz,wght].ttf": "ofl/inter/Inter%5Bopsz,wght%5D.ttf",
-    "JetBrainsMono[wght].ttf": "ofl/jetbrainsmono/JetBrainsMono%5Bwght%5D.ttf",
-    "CabinSketch-Bold.ttf": "ofl/cabinsketch/CabinSketch-Bold.ttf",
-    "Caveat[wght].ttf": "ofl/caveat/Caveat%5Bwght%5D.ttf",
+    "Michroma-Regular.ttf": "ofl/michroma/Michroma-Regular.ttf",
+    "IBMPlexMono-Regular.ttf": "ofl/ibmplexmono/IBMPlexMono-Regular.ttf",
+    "IBMPlexMono-Medium.ttf": "ofl/ibmplexmono/IBMPlexMono-Medium.ttf",
+    "IBMPlexSans[wdth,wght].ttf": "ofl/ibmplexsans/IBMPlexSans%5Bwdth,wght%5D.ttf",
+    "ZenKakuGothicNew-Light.ttf": "ofl/zenkakugothicnew/ZenKakuGothicNew-Light.ttf",
+    "ZenKakuGothicNew-Regular.ttf": "ofl/zenkakugothicnew/ZenKakuGothicNew-Regular.ttf",
+    "ZenKakuGothicNew-Medium.ttf": "ofl/zenkakugothicnew/ZenKakuGothicNew-Medium.ttf",
+    "ShipporiMincho-Regular.ttf": "ofl/shipporimincho/ShipporiMincho-Regular.ttf",
+    "ShipporiMincho-Bold.ttf": "ofl/shipporimincho/ShipporiMincho-Bold.ttf",
+}
+SPEC = {
+    "mich": ("Michroma-Regular.ttf", None),
+    "pm": ("IBMPlexMono-Regular.ttf", None), "pm5": ("IBMPlexMono-Medium.ttf", None),
+    "ps": ("IBMPlexSans[wdth,wght].ttf", {"wght": 400, "wdth": 100}),
+    "ps3": ("IBMPlexSans[wdth,wght].ttf", {"wght": 300, "wdth": 100}),
+    "ps5": ("IBMPlexSans[wdth,wght].ttf", {"wght": 500, "wdth": 100}),
+    "jp3": ("ZenKakuGothicNew-Light.ttf", None), "jp": ("ZenKakuGothicNew-Regular.ttf", None),
+    "jp5": ("ZenKakuGothicNew-Medium.ttf", None),
+    "min": ("ShipporiMincho-Regular.ttf", None), "min7": ("ShipporiMincho-Bold.ttf", None),
 }
 
 
 def fetch_fonts():
-    """Downloads the (SIL Open Font License) fonts from the Google Fonts repo on first run."""
+    """Downloads the fonts (SIL Open Font License) from the Google Fonts repo on first run."""
     import urllib.request
     os.makedirs(FONT_DIR, exist_ok=True)
     for name, rel in FONT_FILES.items():
@@ -189,27 +196,11 @@ def fetch_fonts():
             urllib.request.urlretrieve(GOOGLE_FONTS + rel, path)
 
 
-def register_fonts():
-    fetch_fonts()
-    spec = {
-        "neon":   ("Sacramento-Regular.ttf", None),
-        "tilt":   ("TiltNeon[XROT,YROT].ttf", None),
-        "deco":   ("JosefinSans[wght].ttf", {"wght": 600}),
-        "deco7":  ("JosefinSans[wght].ttf", {"wght": 700}),
-        "serif":  ("PlayfairDisplay[wght].ttf", {"wght": 700}),
-        "serifi": ("PlayfairDisplay-Italic[wght].ttf", {"wght": 500}),
-        "sans":   ("Inter[opsz,wght].ttf", {"wght": 400, "opsz": 14}),
-        "sans6":  ("Inter[opsz,wght].ttf", {"wght": 600, "opsz": 14}),
-        "sans7":  ("Inter[opsz,wght].ttf", {"wght": 700, "opsz": 14}),
-        "mono":   ("JetBrainsMono[wght].ttf", {"wght": 400}),
-        "mono7":  ("JetBrainsMono[wght].ttf", {"wght": 700}),
-        "chalk":  ("CabinSketch-Bold.ttf", None),
-        "hand":   ("Caveat[wght].ttf", {"wght": 500}),
-        "hand7":  ("Caveat[wght].ttf", {"wght": 700}),
-    }
-    for k, (f, v) in spec.items():
-        if k not in FONTS:
-            FONTS[k] = Font(k, f, v)
+def font(key):
+    if key not in FONTS:
+        f, v = SPEC[key]
+        FONTS[key] = Font(key, f, v)
+    return FONTS[key]
 
 
 # --------------------------------------------------------------------------- document
