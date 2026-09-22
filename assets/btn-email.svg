@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 236 54" width="236" height="54" role="img" aria-labelledby="t d" >
+<title id="t">EMAIL</title><desc id="d">EMAIL button</desc>
+<style>@media (prefers-reduced-motion: reduce){*{animation:none!important;transition:none!important}}</style>
+<defs><path id="pm5-30" d="M462 0l-53-186h-222l-53 186h-114l204-698h153l204 698zm-160-585h-8l-86 306h180z"/><path id="pm5-34" d="M86 0v-698h437v94h-325v203h313v94h-313v213h325v94z"/><path id="pm5-38" d="M80 0v-85h164v-528h-164v-85h440v85h-164v528h164v85z"/><path id="pm5-41" d="M108 0v-698h112v604h318v94z"/><path id="pm5-42" d="M445-334l3-210h-8l-140 359l-140-359h-8l3 210v334h-99v-698h137l107 277h7l108-277h129v698h-99z"/></defs>
+<rect x=".5" y=".5" width="235" height="53" rx="6" fill="#0C0C0F" stroke="#34343C"/>
+<path d="M4 12V4H12 M224 4H232V12 M232 42V50H224 M12 50H4V42" fill="none" stroke="#F0412A" stroke-opacity="0.9" stroke-width="1.2"/>
+<rect x="18" y="15.0" width="24" height="24" rx="2" fill="#F0412A"/>
+<path d="M23 22.0h14v10h-14z M23 22.0l7 5.5 7-5.5" fill="none" stroke="#08080A" stroke-width="1.6" stroke-linejoin="round"/>
+<g transform="translate(56 31.5) scale(0.013)" fill="#E8E4DC"><use href="#pm5-34" x="0"/><use href="#pm5-42" x="846.2"/><use href="#pm5-30" x="1692.3"/><use href="#pm5-38" x="2538.5"/><use href="#pm5-41" x="3384.6"/></g>
+<path d="M202 33.0l10 -10 M205 23.0h7v7" fill="none" stroke="#8C8C95" stroke-width="1.5" stroke-linecap="square"/>
+</svg>
